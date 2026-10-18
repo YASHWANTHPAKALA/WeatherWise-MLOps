@@ -1,42 +1,63 @@
-<<<<<<< HEAD
 # WeatherWise — Weather Condition Classification
 
-A small ML/MLOps prototype that predicts Sunny, Cloudy, Rainy, or Foggy from temperature, humidity, wind speed, and pressure using a Decision Tree classifier.
+A Machine Learning and MLOps project that classifies weather conditions as Sunny, Cloudy, Rainy, or Foggy using temperature, humidity, wind speed, and pressure with a Decision Tree classifier.
 
 ## Features
-- Train/test split and evaluation report
-- Saved scikit-learn model
-- Flask web interface and `/health` endpoint
-- Dockerfile for containerized execution
+- Machine learning model training and evaluation
+- Flask web interface for weather classification
+- Health-check and prediction API endpoints
+- Docker containerization
+- AWS EC2 deployment
 
-## Dataset caveat
-This starter uses a tiny illustrative dataset embedded in `train.py`. It is for demonstrating the workflow only, not for trustworthy weather prediction. Replace it with a larger, documented, real dataset before making real-world claims.
+## Technologies
+- Python
+- Scikit-learn
+- Flask
+- Docker
+- AWS EC2
 
-## Run locallycode 
+## Run Locally
+
+Install dependencies:
+
 ```bash
-python -m venv .venv
-# Windows PowerShell:
-.venv\\Scripts\\Activate.ps1
-# macOS/Linux:
-source .venv/bin/activate
 pip install -r requirements.txt
-python train.py
+```
+
+Run the application:
+
+```bash
 python app.py
 ```
-Open http://127.0.0.1:5000. Health endpoint: http://127.0.0.1:5000/health
+
+Open `http://127.0.0.1:5000` in your browser.
 
 ## Docker
+
+Build the image:
+
 ```bash
-docker build -t weatherwise .
-docker run --rm -p 5000:5000 weatherwise
+docker build -t weatherwise:1.0 .
 ```
 
-## Deployment URLs
-AWS: Add the actual working deployment URL here.
-GCP: Add the actual working deployment URL here.
+Run the container:
 
-Do not represent placeholders as deployed URLs.
-=======
-# WeatherWise-MLOps
-Weather condition classification using Machine Learning, Flask, Docker, and AWS EC2.
->>>>>>> f9d3f9e9ab2c89e2f95bacb69fe4e7ddfc7f9bcf
+```bash
+docker run -d --name weatherwise-app -p 5000:5000 weatherwise:1.0
+```
+
+## Health Check
+
+Open `http://127.0.0.1:5000/health`.
+
+## AWS Deployment
+
+Application: http://13.236.9.132:5000
+
+Health check: http://13.236.9.132:5000/health
+
+**Note:** The AWS links work only while the EC2 instance is running and the required security-group rules permit access.
+
+## Dataset Note
+
+The project uses a small illustrative dataset for demonstrating the ML/MLOps workflow. Its results should not be treated as reliable real-world weather predictions without evaluation on a larger, documented dataset.
