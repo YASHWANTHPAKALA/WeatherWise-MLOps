@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherWise</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #111827;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 8px 0 24px;
+            font-size: 48px;
+            line-height: 1.2;
+            color: #071b3b;
+        }
+
+        .subtitle {
+            margin: 0 0 40px;
+            font-size: 25px;
+            line-height: 1.5;
+            color: #475569;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px 28px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            height: 70px;
+            padding: 15px 18px;
+            border: 2px solid #cbd5e1;
+            border-radius: 17px;
+            font-size: 24px;
+            color: #111827;
+            background: white;
+        }
+
+        input:focus {
+            outline: 2px solid #93c5fd;
+            border-color: #0284c7;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 38px;
+            padding: 21px;
+            border: none;
+            border-radius: 16px;
+            background: #0875a9;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #075985;
+        }
+
+        .result {
+            margin-top: 22px;
+            padding: 22px;
+            border: 1px solid #67e8f9;
+            border-radius: 18px;
+            background: #ecfeff;
+            font-size: 22px;
+        }
+
+        .error {
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 16px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 19px;
+                margin-bottom: 28px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-group label {
+                font-size: 17px;
+            }
+
+            input {
+                height: 55px;
+                font-size: 19px;
+            }
+
+            button {
+                margin-top: 25px;
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>🌦️ WeatherWise</h1>
+
+        <p class="subtitle">
+            Enter weather measurements to classify the likely condition
+            using a trained Decision Tree model.
+        </p>
+
+        <form method="POST" action="/">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="temperature">Temperature (°C)</label>
+                    <input type="number" step="any" id="temperature"
+                           name="temperature" value="24" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="humidity">Humidity (%)</label>
+                    <input type="number" step="any" id="humidity"
+                           name="humidity" min="0" max="100"
+                           value="90" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="wind_speed">Wind speed (km/h)</label>
+                    <input type="number" step="any" id="wind_speed"
+                           name="wind_speed" min="0" value="20" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pressure">Pressure (hPa)</label>
+                    <input type="number" step="any" id="pressure"
+                           name="pressure" value="1002" required>
+                </div>
+            </div>
+
+            <button type="submit">Classify Weather</button>
+        </form>
+
+        {% if prediction is not none %}
+        <div class="result">
+            <strong>Predicted weather condition: {{ prediction }}</strong>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+    </main>
+</body>
+</html>
