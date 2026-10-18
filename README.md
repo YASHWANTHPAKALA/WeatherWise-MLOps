@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # WeatherWise — Weather Condition Classification
 
 A small ML/MLOps prototype that predicts Sunny, Cloudy, Rainy, or Foggy from temperature, humidity, wind speed, and pressure using a Decision Tree classifier.
@@ -11,7 +12,7 @@ A small ML/MLOps prototype that predicts Sunny, Cloudy, Rainy, or Foggy from tem
 ## Dataset caveat
 This starter uses a tiny illustrative dataset embedded in `train.py`. It is for demonstrating the workflow only, not for trustworthy weather prediction. Replace it with a larger, documented, real dataset before making real-world claims.
 
-## Run locally
+## Run locallycode 
 ```bash
 python -m venv .venv
 # Windows PowerShell:
@@ -35,3 +36,7 @@ AWS: Add the actual working deployment URL here.
 GCP: Add the actual working deployment URL here.
 
 Do not represent placeholders as deployed URLs.
+=======
+# WeatherWise-MLOps
+Weather condition classification using Machine Learning, Flask, Docker, and AWS EC2.
+>>>>>>> f9d3f9e9ab2c89e2f95bacb69fe4e7ddfc7f9bcf
