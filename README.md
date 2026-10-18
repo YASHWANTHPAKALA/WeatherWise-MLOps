@@ -57,7 +57,3 @@ Application: http://13.236.9.132:5000
 Health check: http://13.236.9.132:5000/health
 
 **Note:** The AWS links work only while the EC2 instance is running and the required security-group rules permit access.
-
-## Dataset Note
-
-The project uses a small illustrative dataset for demonstrating the ML/MLOps workflow. Its results should not be treated as reliable real-world weather predictions without evaluation on a larger, documented dataset.
