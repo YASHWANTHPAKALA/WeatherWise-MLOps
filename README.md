@@ -52,7 +52,7 @@ Open `http://127.0.0.1:5000/health`.
 
 ## AWS Deployment
 
-Application: http://13.236.9.132:5000
+Application: http://13.236.9.132:5000 
 
 Health check: http://13.236.9.132:5000/health
 
